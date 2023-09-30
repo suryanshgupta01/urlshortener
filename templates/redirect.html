@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <center>
+        <h1>This html file is never displayed</h1>
+        <h2>URL: "{{ obj.og_url }}"</h2>
+        <h4>Your Request: "{{ obj.short_url }}"</h4>
+        <a href="{{ obj.og_url }}"><button type="button" class="btn btn-primary">Go To Website</button></a>
+    </center>
+{% endblock content %}

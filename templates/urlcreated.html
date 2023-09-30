@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <center>
+    <div class="alert alert-primary" role="alert" style="margin-top: 3rem; margin-bottom: 3rem; height: 30vh;">
+      <h1>Your Short URL: </h1>
+      <form>
+        <div class="form-row" style="margin-top: 3rem;">
+          <div class="col">
+            <input type="text" value="localhost:8000/{{ chars }}" class="form-control" fixed style="width: 80%; " placeholder="First name" id="shorturl"/>
+          </div>
+          <div class="col" style="margin-left: -300px;">
+            <button type="button" class="btn btn-success copy" style="margin-right: 15px;">COPY</button>
+            <a href="http://localhost:8000/{{ chars }}"><button type="button" class="btn btn-primary">Go To Website</button></a>
+            {% comment %} <input type="text" class="form-control" placeholder="Last name" /> {% endcomment %}
+          </div>
+        </div>
+      </form>
+      {% comment %} <input type="text" class="form-control" id="usr" /> {% endcomment %}
+      {% comment %} <input value="test" class="shorturl" disabled type="text" /> {% endcomment %}
+      {% comment %} <a class="btn btn-primary">Go to Website</a> {% endcomment %}
+    </div>
+    <script>
+    const button = document.querySelector('.copy');
+
+    button.addEventListener('click', () => {
+        const text = document.querySelector('#shorturl');
+        text.select();
+        try {
+            document.execCommand('copy');
+            button.innerHTML = 'Copied!';
+        } catch (err) {
+            alert('Unable to copy to clipboard. Please copy manually.');
+        }
+    });
+</script>
+  </center>
+{% endblock %}
